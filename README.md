@@ -29,19 +29,3 @@ FallDar is the primary dataset. Its main limitation is a single living room, so 
 
 At 114x compression, fall recall drops from 0.956 to 0.860. Refining only the misclassified 11% of windows to full CSI restores it to 0.992, at about 12% of the full transmission. The same-rate control reaches 0.931, so +0.061 recall comes from the extra CSI itself.
 
-## Run
-
-Download the FallDar dataset, place `FallDar.zip` next to the script (it is not in this repository because of its size), then run:
-
-```bash
-python falldar_feasibility.py
-```
-
-The first run builds `falldar_cache.npz`. Results are written to `falldar_results/`:
-
-- `fixed_rate.csv`: recall, precision and F1 for each compression rate
-- `oracle.csv`: results for every base-to-refine rate pair
-- `control_comparison.csv`: information gain over the same-rate control
-- `rate_vs_recall.png`: recall against average transmitted rate
-
-Requirements: numpy, scipy, scikit-learn, pandas, matplotlib, torch.
